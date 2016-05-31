@@ -14,5 +14,5 @@ func GetBytes(n int) ([]byte, error) {
         return nil, err
     }
     
-    return b
+    return b, nil
 }
