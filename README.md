@@ -24,6 +24,24 @@ func main() {
 ```
 
 
+## GetAlphaNumString
+
+Returns a fixed length string of random letters and numbers [a-z][A-Z][0-9]
+
+```go
+import "github.com/leonelquinteros/gorand"
+
+func main() {
+    value, err := gorand.GetAlphaNumString(24)
+    if err != nil {
+        panic(err.Error())
+    }
+    
+    println(value)
+}
+```
+
+
 ## GetHex
 
 Retrieves a fixed amount of bytes hex number represented as a string. 
