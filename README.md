@@ -18,7 +18,7 @@ but here we can centralize all of them and keep a unified way of retrieving rand
 
 Unified QA is another motivator to have and use this package.
 
-Below are some examples of functions inside this package, for the entire reference and docs please refer to the documentation at (https://godoc.org/github.com/leonelquinteros/gorand)
+Below are some examples of functions inside this package, for the entire reference and docs please refer to the documentation at https://godoc.org/github.com/leonelquinteros/gorand
 
 
 ## ID
