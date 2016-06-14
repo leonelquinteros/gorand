@@ -3,7 +3,22 @@
 
 # Gorand
 
-Goodies for working with random stuff
+Goodies for working with random stuff.
+
+Package gorand defines a set of utility methods to work with random data. 
+
+The main goal is to curate a collection of functions for random data generation 
+in different formats to be used for different purposes. 
+
+It uses the "crypto/rand" package to provide the most secure random data, 
+unless indicated otherwise where performance can be the main focus of the method. 
+
+Most implementations are really trivial and anybody could write the same on their own packages, 
+but here we can centralize all of them and keep a unified way of retrieving random data. 
+
+Unified QA is another motivator to have and use this package.
+
+Below are some examples of functions inside this package, for the entire reference and docs please refer to the documentation at (https://godoc.org/github.com/leonelquinteros/gorand)
 
 
 ## ID
