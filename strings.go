@@ -11,10 +11,7 @@ const (
 	numbers   = "0123456789"
 )
 
-// GetRandomChars returns a fixed length string of chars contained on a collection string provided.
-// Params:
-// - c (string): Collection of chars to randomly pick from.
-// - n (int): Length of the result string
+// GetRandomChars returns a fixed length string (n int) of chars contained on a collection string provided (c string).
 func GetRandomChars(c string, n int) (string, error) {
 	var r string
 
@@ -31,16 +28,17 @@ func GetRandomChars(c string, n int) (string, error) {
 	return r, nil
 }
 
-// GetAlphaNumString returns a fixed length string of random letters and numbers [a-z][A-Z][0-9]
-// Params:
-// - n (int): Length of the result string
+// GetAlphaNumString returns a fixed length (n int) string of random letters and numbers [a-z][A-Z][0-9]
 func GetAlphaNumString(n int) (string, error) {
 	return GetRandomChars(lowercase+uppercase+numbers, n)
 }
 
-// GetAlphaString returns a fixed length string of random letters [a-z][A-Z]
-// Params:
-// - n (int): Length of the result string
+// GetAlphaString returns a fixed length (n int) string of random letters [a-z][A-Z]
 func GetAlphaString(n int) (string, error) {
 	return GetRandomChars(lowercase+uppercase, n)
+}
+
+// GetNumString returns a fixed length (n int) string of random numbers [0-9]
+func GetNumString(n int) (string, error) {
+	return GetRandomChars(numbers, n)
 }
