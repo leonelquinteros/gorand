@@ -21,20 +21,20 @@ Unified QA is another motivator to have and use this package.
 Below are some examples of functions inside this package, for the entire reference and docs please refer to the documentation at https://godoc.org/github.com/leonelquinteros/gorand
 
 
-## ID
+## UUID
 
-Generates a random 64 bytes number represented as a 128 chars string
+Generates a version 4 (randomly generated) UUID as defined in RFC 4122
 
 ```go
 import "github.com/leonelquinteros/gorand"
 
 func main() {
-    value, err := gorand.ID()
+    uuid, err := gorand.UUID()
     if err != nil {
         panic(err.Error())
     }
     
-    println(value)
+    println(uuid)
 }
 ```
 
