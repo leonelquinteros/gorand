@@ -20,6 +20,7 @@ import (
 
 // GetBytes returns a fixed amount of random bytes.
 // Specify the amount of bytes wanted by passing it on the n parameter.
+// This function is the base for most of the methods on this package.
 func GetBytes(n int) ([]byte, error) {
 	b := make([]byte, n)
 
