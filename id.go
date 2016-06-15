@@ -1,6 +1,10 @@
 package gorand
 
-import ()
+import (
+	"encoding/hex"
+	"errors"
+	"fmt"
+)
 
 // ID is a wrapper for GetHex(64).
 // 64 bytes should be enough to use as unique IDs to avoid collisions between recently generated values.
@@ -15,6 +19,32 @@ func UUID() (string, error) {
 	uuid, err := GetHex(16)
 	if err != nil {
 		return "", err
+	}
+
+	return formatV4UUID(uuid)
+}
+
+// UnmarshalUUID parses a string representation of a UUID and returns its []bytes value.
+// It doesn't check for version or varian bits, so it can be used with invalid (non RFC 4122 compilant) values.
+func UnmarshalUUID(uuid string) ([]byte, error) {
+	return hex.DecodeString(uuid[0:8] + uuid[9:13] + uuid[14:18] + uuid[19:23] + uuid[24:])
+}
+
+// MarshalUUID converts a []byte UUID into its canonical string representation.
+// It doesn't check for version or varian bits, so it can be used with invalid (non RFC 4122 compilant) values.
+func MarshalUUID(b []byte) (string, error) {
+	if len(b) != 16 {
+		return "", errors.New("Invalid bytes length")
+	}
+
+	uuid := fmt.Sprintf("%x", b)
+
+	return uuid[0:8] + "-" + uuid[8:12] + "-" + uuid[12:16] + "-" + uuid[16:20] + "-" + uuid[20:], nil
+}
+
+func formatV4UUID(uuid string) (string, error) {
+	if len(uuid) != 32 {
+		return "", errors.New("Invalid string length")
 	}
 
 	// Get random variant

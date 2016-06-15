@@ -25,3 +25,24 @@ func TestUUID(t *testing.T) {
 		t.Error("Length of UUID isn't 36")
 	}
 }
+
+func TestMarshalUUID(t *testing.T) {
+	uuid, err := UUID()
+	if err != nil {
+		t.Error(err.Error())
+	}
+
+	m, err := UnmarshalUUID(uuid)
+	if err != nil {
+		t.Error(err.Error())
+	}
+
+	u, err := MarshalUUID(m)
+	if err != nil {
+		t.Error(err.Error())
+	}
+
+	if u != uuid {
+		t.Errorf("%s != %s after Unmarshal and Marshal")
+	}
+}
