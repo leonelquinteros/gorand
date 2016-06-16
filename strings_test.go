@@ -47,3 +47,27 @@ func TestGetNumString(t *testing.T) {
 		t.Error("Length of string isn't 10")
 	}
 }
+
+func BenchmarkAlphaNumString1(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		GetAlphaNumString(1)
+	}
+}
+
+func BenchmarkAlphaNumString10(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		GetAlphaNumString(10)
+	}
+}
+
+func BenchmarkAlphaNumString100(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		GetAlphaNumString(100)
+	}
+}
+
+func BenchmarkAlphaNumString1000(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		GetAlphaNumString(1000)
+	}
+}

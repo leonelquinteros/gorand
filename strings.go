@@ -15,6 +15,7 @@ const (
 func GetRandomChars(c string, n int) (string, error) {
 	var r string
 
+	// Get random chars one by one
 	for i := 0; i < n; i++ {
 		// Read random position
 		p, err := rand.Int(rand.Reader, big.NewInt(int64(len(c))))

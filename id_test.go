@@ -46,3 +46,15 @@ func TestMarshalUUID(t *testing.T) {
 		t.Errorf("%s != %s after Unmarshal and Marshal")
 	}
 }
+
+func BenchmarkID(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		ID()
+	}
+}
+
+func BenchmarkUUID(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		UUID()
+	}
+}
