@@ -1,7 +1,7 @@
 package gorand
 
 import (
-	"fmt"
+	"encoding/hex"
 )
 
 // GetHex returns a string representation of a (n) bytes random hexadecimal number.
@@ -12,5 +12,5 @@ func GetHex(n int) (string, error) {
 		return "", err
 	}
 
-	return fmt.Sprintf("%x", b), nil
+	return hex.EncodeToString(b), nil
 }
