@@ -26,6 +26,13 @@ func UUID() (string, error) {
 // UnmarshalUUID parses a string representation of a UUID and returns its []bytes value.
 // It doesn't check for version or varian bits, so it can be used with invalid (non RFC 4122 compilant) values.
 func UnmarshalUUID(uuid string) ([]byte, error) {
+    if len(uuid) != 36 {
+        return nil, errors.New("Invalid uuid length")
+    }
+    if uuid[8:9] != "-" || uuid[13:14] != "-" || uuid[18:19] != "-" || uuid[23:24] != "-" {
+        return nil, errors.New("Invalid uuid format")
+    }
+    
 	return hex.DecodeString(uuid[0:8] + uuid[9:13] + uuid[14:18] + uuid[19:23] + uuid[24:])
 }
 
