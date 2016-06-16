@@ -3,7 +3,6 @@ package gorand
 import (
 	"encoding/hex"
 	"errors"
-	"fmt"
 )
 
 // ID is a wrapper for GetHex(64).
@@ -37,7 +36,7 @@ func MarshalUUID(b []byte) (string, error) {
 		return "", errors.New("Invalid bytes length")
 	}
 
-	uuid := fmt.Sprintf("%x", b)
+	uuid := hex.EncodeToString(b)
 
 	return uuid[0:8] + "-" + uuid[8:12] + "-" + uuid[12:16] + "-" + uuid[16:20] + "-" + uuid[20:], nil
 }
