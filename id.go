@@ -20,14 +20,8 @@ func UUID() (string, error) {
 		return "", err
 	}
 
-	// Get random variant
-	v, err := GetRandomChars("89ab", 1)
-	if err != nil {
-		return "", err
-	}
-
 	// Format UUID with version and variant bits
-	return uuid[0:8] + "-" + uuid[8:12] + "-4" + uuid[13:16] + "-" + v + uuid[17:20] + "-" + uuid[20:], nil
+	return uuid[0:8] + "-" + uuid[8:12] + "-4" + uuid[13:16] + "-a" + uuid[17:20] + "-" + uuid[20:], nil
 }
 
 // UnmarshalUUID parses a string representation of a UUID and returns its []bytes value.
