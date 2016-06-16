@@ -1,4 +1,5 @@
 [![GoDoc](https://godoc.org/github.com/leonelquinteros/gorand?status.svg)](https://godoc.org/github.com/leonelquinteros/gorand)
+[![Build Status](https://travis-ci.org/leonelquinteros/gorand.svg?branch=master)](https://travis-ci.org/leonelquinteros/gorand)
 
 
 # Gorand
