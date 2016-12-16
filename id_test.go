@@ -47,6 +47,22 @@ func TestMarshalUUID(t *testing.T) {
 	}
 }
 
+func TestMarshalUUIDFail(t *testing.T) {
+	_, err := UnmarshalUUID("1234567890")
+	if err == nil {
+		t.Fatal("UnmarshalUUID('1234567890') should fail.")
+	}
+	_, err = UnmarshalUUID("123456789012345678901234567890123456")
+	if err == nil {
+		t.Fatal("UnmarshalUUID('123456789012345678901234567890123456') should fail.")
+	}
+
+	_, err = MarshalUUID([]byte("1234567890"))
+	if err == nil {
+		t.Error("MarshalUUID([]byte('1234567890')) should fail")
+	}
+}
+
 func BenchmarkID(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		ID()
