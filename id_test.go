@@ -43,7 +43,7 @@ func TestMarshalUUID(t *testing.T) {
 	}
 
 	if u != uuid {
-		t.Errorf("%s != %s after Unmarshal and Marshal")
+		t.Errorf("%s != %s after Unmarshal and Marshal", u, uuid)
 	}
 }
 
