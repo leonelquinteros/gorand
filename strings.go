@@ -30,6 +30,26 @@ func GetRandomChars(c string, n int) (string, error) {
 }
 
 // GetAlphaNumString returns a fixed length (n int) string of random letters and numbers [a-z][A-Z][0-9]
+//
+// Example:
+//
+//		package main
+//
+//		import (
+//			"fmt"
+//			"github.com/leonelquinteros/gorand"
+//		)
+//
+//		func main() {
+//			// Get random string of 10 chars
+//			str, err := gorand.GetAlphaNumString(10)
+//			if err != nil {
+//				panic(err)
+//			}
+//
+//			fmt.Println(str)
+//		}
+//
 func GetAlphaNumString(n int) (string, error) {
 	return GetRandomChars(lowercase+uppercase+numbers, n)
 }
