@@ -1,6 +1,7 @@
 package gorand
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -70,4 +71,14 @@ func BenchmarkAlphaNumString1000(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		GetAlphaNumString(1000)
 	}
+}
+
+func ExampleGetAlphaNumString() {
+	// Get random string of 10 chars
+	str, err := GetAlphaNumString(10)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(str)
 }
