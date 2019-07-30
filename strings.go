@@ -3,6 +3,7 @@ package gorand
 import (
 	"crypto/rand"
 	"math/big"
+	"strings"
 )
 
 const (
@@ -13,20 +14,21 @@ const (
 
 // GetRandomChars returns a fixed length string (n int) of chars contained on a collection string provided (c string).
 func GetRandomChars(c string, n int) (string, error) {
-	var r string
+	var r strings.Builder
+	runes := []rune(c)
 
 	// Get random chars one by one
 	for i := 0; i < n; i++ {
 		// Read random position
-		p, err := rand.Int(rand.Reader, big.NewInt(int64(len(c))))
+		p, err := rand.Int(rand.Reader, big.NewInt(int64(len(runes))))
 		if err != nil {
 			return "", err
 		}
 
-		r += string(c[p.Int64()])
+		r.WriteRune(runes[p.Int64()])
 	}
 
-	return r, nil
+	return r.String(), nil
 }
 
 // GetAlphaNumString returns a fixed length (n int) string of random letters and numbers [a-z][A-Z][0-9]
