@@ -3,6 +3,7 @@ package gorand
 import (
 	"encoding/hex"
 	"testing"
+	"time"
 )
 
 func TestID(t *testing.T) {
@@ -17,13 +18,16 @@ func TestID(t *testing.T) {
 }
 
 func TestIDOrder(t *testing.T) {
-	ids := make([][64]byte, 100000)
-	for i := 0; i < 100000; i++ {
+	ids := make([][64]byte, 10000)
+	for i := 0; i < 10000; i++ {
 		id, err := ID()
 		if err != nil {
 			t.Fatal(err)
 		}
 		ids[i] = id
+
+		// Force time change for testing purposes
+		time.Sleep(1 * time.Millisecond)
 	}
 
 	for i, v := range ids {

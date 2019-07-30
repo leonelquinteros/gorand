@@ -7,16 +7,17 @@ import (
 )
 
 var localID [9]byte
+var defaultID = [9]byte{'D', 'e', 'f', 'a', 'u', 'l', 't', 'I', 'D'}
 
 // Initializes the value for the local process run identifier
 func init() {
 	buf, err := GetBytes(9)
 	if err != nil {
-		localID = [9]byte{'D', 'e', 'f', 'a', 'u', 'l', 't', 'I', 'D'}
+		localID = defaultID
 	} else {
 		_, err = io.ReadFull(bytes.NewBuffer(buf), localID[:])
 		if err != nil {
-			localID = [9]byte{'D', 'e', 'f', 'a', 'u', 'l', 't', 'I', 'D'}
+			localID = defaultID
 		}
 	}
 }
